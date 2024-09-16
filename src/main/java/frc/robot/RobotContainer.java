@@ -100,7 +100,7 @@ public class RobotContainer {
      * edu.wpi.first.wpilibj.Joystick} or {@link XboxController}), and then
      * calling passing it to a {@link JoystickButton}.
      */
-    // I FIXED THE CODE FOR YOU ALREADY, DON'T TOUCH IT!!!!!!!
+    // I FIXED THE CODE FOR YOU ALREADY, DON'T TOUCH IT!!!!!!!, IT WAS STILL BROKEN I FIXED IT
     private void configureButtonBindings() {
 
         driveButton1.whileTrue(new RunCommand(() -> m_robotDrive.setX(), m_robotDrive));
