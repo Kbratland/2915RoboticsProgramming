@@ -14,7 +14,6 @@ public class eyeSpySubsystem extends SubsystemBase {
         var result = photonCamera.getLatestResult();
         if (result.hasTargets()) {
             PhotonTrackedTarget targetX = result.getBestTarget();
-            // System.out.println("I have a target X " + targetX);
             return targetX.getYaw();
         } else {
             return (0);
@@ -26,7 +25,6 @@ public class eyeSpySubsystem extends SubsystemBase {
         var result = photonCamera.getLatestResult();
         if (result.hasTargets()) {
             PhotonTrackedTarget targetY = result.getBestTarget();
-            // System.out.println("I have target Y " + targetY);
             return targetY.getPitch();
         } else {
             return (0);
@@ -38,7 +36,6 @@ public class eyeSpySubsystem extends SubsystemBase {
         var result = photonCamera.getLatestResult();
         if (result.hasTargets()) {
             PhotonTrackedTarget targetA = result.getBestTarget();
-            // System.out.println("I have target Y " + targetA);
             return targetA.getArea();
         } else {
             return (0);
