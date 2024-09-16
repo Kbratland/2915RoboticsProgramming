@@ -42,9 +42,9 @@ public class eyeSpySubsystem extends SubsystemBase {
         }
     }
 
-    public boolean targetSpotted(){
+    public boolean targetSpotted() {
         var result = photonCamera.getLatestResult();
         return result.hasTargets();
-        
+
     }
 }
