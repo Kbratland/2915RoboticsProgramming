@@ -32,6 +32,7 @@ public class Robot extends TimedRobot {
         // and put our
         // autonomous chooser on the dashboard.
         m_robotContainer = new RobotContainer();
+        enableLiveWindowInTest(true);
         // m_ClimberSubsystem.ClimbBrakesON();
     }
 

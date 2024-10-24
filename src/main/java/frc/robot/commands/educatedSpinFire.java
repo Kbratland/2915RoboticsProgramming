@@ -40,27 +40,26 @@ public class educatedSpinFire extends Command {
 
     @Override
     public void execute() {
-        System.out.println(m_EyeSubsystem.getTargetYaw() + " is the target's Yaw");
-        System.out.println(m_EyeSubsystem.getTargetPitch() + " is the target's Pitch");
-        System.out.println(m_EyeSubsystem.getTargetArea() + " is the target's Area");
+        System.out.println(m_EyeSubsystem.getYaw() + " is the target's Yaw");
+        System.out.println(m_EyeSubsystem.getPitch() + " is the target's Pitch");
+        System.out.println(m_EyeSubsystem.getArea() + " is the target's Area");
         if (m_EyeSubsystem.targetSpotted()) {
-            if (m_EyeSubsystem.getTargetArea() >= 0.3) {
+            if (m_EyeSubsystem.getArea() >= 0.3) {
                 ySpeed = -.15;
-            } else if (m_EyeSubsystem.getTargetArea() <= 0.8) {
+            } else if (m_EyeSubsystem.getArea() <= 0.8) {
                 ySpeed = 0.15;
-            } else if (m_EyeSubsystem.getTargetArea() <= 0.3 && m_EyeSubsystem.getTargetArea() >= 0.8) {
+            } else if (m_EyeSubsystem.getArea() <= 0.3 && m_EyeSubsystem.getArea() >= 0.8) {
                 ySpeed = 0;
-                if (m_EyeSubsystem.getTargetYaw() >= 0.2) {
+                if (m_EyeSubsystem.getYaw() >= 0.2) {
                     rotSpeed = -0.15;
-                } else if (m_EyeSubsystem.getTargetYaw() <= -0.2) {
+                } else if (m_EyeSubsystem.getYaw() <= -0.2) {
                     rotSpeed = 0.15;
                 } else {
                     rotSpeed = 0;
                     m_ShooterSubsystem.Launch(0.85);
                     System.out.println("attempting to shoot");
                     if ((m_ShooterSubsystem.getSpeed(1) > 1000 && m_ShooterSubsystem.getSpeed(2) > 1000
-                            && m_ShooterSubsystem.getSpeed(3) > 1000 && m_ShooterSubsystem.getSpeed(4) > 1000)
-                            || System.currentTimeMillis() - start > 2000) {
+                            && m_ShooterSubsystem.getSpeed(3) > 1000 && m_ShooterSubsystem.getSpeed(4) > 1000) || System.currentTimeMillis() - start > 2000) {
                         System.out.println("shooting");
                         m_RingStoreSubsystem.GastroIntestinalPush(0.5);
                     }
