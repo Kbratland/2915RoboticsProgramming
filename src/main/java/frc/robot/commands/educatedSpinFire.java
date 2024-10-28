@@ -43,7 +43,6 @@ public class educatedSpinFire extends Command {
     @Override
     public void execute() {
         PhotonTrackedTarget inTarget = m_EyeSubsystem.targetGet();
-
         if (inTarget != null) {
             if (inTarget.getArea() >= 0.3) {
                 ySpeed = -.15;
