@@ -1,5 +1,7 @@
 package frc.robot.commands;
 
+import org.photonvision.targeting.PhotonTrackedTarget;
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.DriveSubsystem;
@@ -40,18 +42,18 @@ public class educatedSpinFire extends Command {
 
     @Override
     public void execute() {
-        
+        PhotonTrackedTarget inTarget = m_EyeSubsystem.targetGet();
 
-        if (m_EyeSubsystem.targetGet() != null) {
-            if (m_EyeSubsystem.targetGet().getArea() >= 0.3) {
+        if (inTarget != null) {
+            if (inTarget.getArea() >= 0.3) {
                 ySpeed = -.15;
-            } else if (m_EyeSubsystem.targetGet().getArea() <= 0.8) {
+            } else if (inTarget.getArea() <= 0.8) {
                 ySpeed = 0.15;
-            } else if (m_EyeSubsystem.targetGet().getArea() <= 0.3 && m_EyeSubsystem.targetGet().getArea() >= 0.8) {
+            } else if (inTarget.getArea() <= 0.3 && inTarget.getArea() >= 0.8) {
                 ySpeed = 0;
-                if (m_EyeSubsystem.targetGet().getYaw() >= 0.2) {
+                if (inTarget.getYaw() >= 0.2) {
                     rotSpeed = -0.15;
-                } else if (m_EyeSubsystem.targetGet().getYaw() <= -0.2) {
+                } else if (inTarget.getYaw() <= -0.2) {
                     rotSpeed = 0.15;
                 } else {
                     rotSpeed = 0;
