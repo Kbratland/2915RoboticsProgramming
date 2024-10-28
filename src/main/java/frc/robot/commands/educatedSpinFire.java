@@ -9,7 +9,7 @@ import frc.robot.subsystems.ShooterSubsystem;
 import frc.robot.subsystems.eyeSpySubsystem;
 
 public class educatedSpinFire extends Command {
-    private final eyeSpySubsystem m_EyeSubsystem;
+    public final eyeSpySubsystem m_EyeSubsystem;
     private final ShooterSubsystem m_ShooterSubsystem;
     private final RingStoreSubsystem m_RingStoreSubsystem;
     private final RingCheckSubsystem m_CheckSubsystem;
@@ -40,19 +40,18 @@ public class educatedSpinFire extends Command {
 
     @Override
     public void execute() {
-        System.out.println(m_EyeSubsystem.getYaw() + " is the target's Yaw");
-        System.out.println(m_EyeSubsystem.getPitch() + " is the target's Pitch");
-        System.out.println(m_EyeSubsystem.getArea() + " is the target's Area");
-        if (m_EyeSubsystem.targetSpotted()) {
-            if (m_EyeSubsystem.getArea() >= 0.3) {
+        
+
+        if (m_EyeSubsystem.targetGet() != null) {
+            if (m_EyeSubsystem.targetGet().getArea() >= 0.3) {
                 ySpeed = -.15;
-            } else if (m_EyeSubsystem.getArea() <= 0.8) {
+            } else if (m_EyeSubsystem.targetGet().getArea() <= 0.8) {
                 ySpeed = 0.15;
-            } else if (m_EyeSubsystem.getArea() <= 0.3 && m_EyeSubsystem.getArea() >= 0.8) {
+            } else if (m_EyeSubsystem.targetGet().getArea() <= 0.3 && m_EyeSubsystem.targetGet().getArea() >= 0.8) {
                 ySpeed = 0;
-                if (m_EyeSubsystem.getYaw() >= 0.2) {
+                if (m_EyeSubsystem.targetGet().getYaw() >= 0.2) {
                     rotSpeed = -0.15;
-                } else if (m_EyeSubsystem.getYaw() <= -0.2) {
+                } else if (m_EyeSubsystem.targetGet().getYaw() <= -0.2) {
                     rotSpeed = 0.15;
                 } else {
                     rotSpeed = 0;
